@@ -1,3 +1,5 @@
+package org.jetbrains.kotlin.sample.cocoapod
+
 import cocoapods.AFNetworking.AFHTTPResponseSerializer
 import cocoapods.AFNetworking.AFHTTPSessionManager
 import platform.Foundation.*

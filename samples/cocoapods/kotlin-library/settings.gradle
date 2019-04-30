@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        jcenter()
+        maven { setUrl("https://dl.bintray.com/kotlin/kotlin-dev") }
+        maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "kotlin-multiplatform" || requested.id.id == "kotlin-native-cocoapods") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+            }
+            if (requested.id.id == "kotlinx-serialization") {
+                useModule("org.jetbrains.kotlin:kotlin-serialization:${kotlin_version}")
+            }
+        }
+    }
+}

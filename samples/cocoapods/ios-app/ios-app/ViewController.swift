@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     @IBAction func onGoTouch(_ sender: Any) {
         let url = urlField.text!
+        print("URL: \(url)")
         KotlinLibKt.getAndShow(url: url, contentView: contentTextView)
     }
 }
