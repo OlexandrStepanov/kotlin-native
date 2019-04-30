@@ -316,7 +316,10 @@ class KonanProxyTypeProvider:
 
 def print_this_command(debugger, command, result, internal_dict):
     pthis = lldb.frame.FindVariable('<this>')
-    log(pthis)
+    print(pthis)
+
+def clear_cache_command(debugger, command, result, internal_dict):
+    SYNTHETIC_OBJECT_LAYOUT_CACHE.clear()
 
 def __lldb_init_module(debugger, _):
     __FACTORY['object'] = lambda x: KonanObjectSyntheticProvider(x, type_info(x))
@@ -338,3 +341,4 @@ def __lldb_init_module(debugger, _):
     ')
     debugger.HandleCommand('type category enable Kotlin')
     debugger.HandleCommand('command script add -f {}.print_this_command print_this'.format(__name__))
+    debugger.HandleCommand('command script add -f {}.clear_cache_command clear_kotlin_cache'.format(__name__))
