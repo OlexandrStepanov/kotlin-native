@@ -65,8 +65,10 @@ kotlin {
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${rootProject.ext.serialization_version}"
             }
         }
-        iosMain {
+        iOSMain {
             dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
+
                 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${rootProject.ext.coroutines_version}"
                 implementation "io.ktor:ktor-client-ios:${rootProject.ext.ktor_version}"
                 implementation "io.ktor:ktor-client-core-native:${rootProject.ext.ktor_version}"
